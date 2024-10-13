@@ -1,0 +1,15 @@
+footer {
+    background-color: #333;
+    padding: 1rem;
+}
+
+footer #container-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer #container-footer #container-logos {
+    display: flex;
+    gap: 0.5rem;
+}

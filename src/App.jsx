@@ -3,6 +3,8 @@ import "./styles/App.css"
 import { Navbar } from "./components/NavBar/Navbar"
 import { Article } from "./components/Article/Article";
 import axios from "axios";
+import { DNA } from 'react-loader-spinner'
+import { Footer } from "./components/Footer/Footer";
 
 function App(){
 
@@ -28,8 +30,22 @@ function App(){
       
       <Navbar/>
 
+      
+
       <section id="articles">
-        {news.map((article) => {
+        {news.length === 0 ? (
+          <div style={{height: "400px", width: "100%", display: "flex", justifyContent: "center", alignItems: "center"}}>
+            <DNA
+              visible={true}
+              height="80"
+              width="80"
+              ariaLabel="dna-loading"
+              wrapperStyle={{}}
+              wrapperClass="dna-wrapper"
+            />
+          </div>
+                    ) : (
+            news.map((article) => {
             return(
               <Article 
                 key={article.id}
@@ -38,9 +54,11 @@ function App(){
                 description={article.summary}
                 thumbnail={article.image_url}
               />
-            )
-        })}
+         )
+        }))}
       </section >
+
+      <Footer/>
     </div>
   );
 }
