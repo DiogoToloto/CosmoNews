@@ -54,6 +54,7 @@ function App(){
                 description={article.summary}
                 thumbnail={article.image_url}
               />
+              
          )
         }))}
       </section >

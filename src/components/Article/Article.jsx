@@ -9,6 +9,9 @@ export function Article({title,provider,description,thumbnail}){
                     <h2>{title}</h2>
                     <h3>{provider}</h3>
                     <p>{description}</p>
+                    <br />
+                    <br />
+                    <hr></hr>
                 </div>
             </article>
         );
