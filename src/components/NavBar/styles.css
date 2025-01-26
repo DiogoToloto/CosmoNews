@@ -54,6 +54,11 @@ header nav#navbar ul.nav-list li a:hover {
 }
 
 @media screen and (max-width: 700px) {
+
+    header{
+        padding-bottom: 30px;
+    }
+
     header nav#navbar {
         display: flex;
         flex-direction: column;

@@ -19,3 +19,9 @@ section#articles {
     flex-direction: column;
     gap: 46px;
 }
+
+@media (min-width: 700px) {
+    hr {
+        display: none;
+    }
+}
