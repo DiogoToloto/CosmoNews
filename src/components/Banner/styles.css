@@ -1,0 +1,19 @@
+.banner{
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: 100%;
+    height: 450px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left center;
+    box-shadow: 1px 10px 20px rgba(0, 0, 0, 0.301);
+    padding: 40px;
+    top: 90px;
+    margin-bottom: 150px;
+}
+
+.banner h1 {
+    font-size: 48px;
+    width: 500px;
+}

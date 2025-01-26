@@ -10,14 +10,14 @@ export function Navbar(){
               <picture>
                 <img src={logoImg} alt="" />
                 </picture>
-              <h1>Space Flight News</h1>
+              <h1>CosmoNews</h1>
             </div>
             <div>
               <ul className="nav-list">
-                <li><a href="/">Home</a></li>
-                <li><a href="/">Trending</a></li>
-                <li><a href="/">Categories</a></li>
-                <li><a href="/">About</a></li>
+                <li><a href="/">Início</a></li>
+                <li><a href="/">Tendências</a></li>
+                <li><a href="/">Categorias</a></li>
+                <li><a href="/">Sobre Nós</a></li>
               </ul>
             </div>
           </nav>

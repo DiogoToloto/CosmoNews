@@ -5,6 +5,8 @@ import { Article } from "./components/Article/Article";
 import axios from "axios";
 import { DNA } from 'react-loader-spinner'
 import { Footer } from "./components/Footer/Footer";
+import BannerImg from "./assets/images/banner.jpg"
+import { Banner } from "./components/Banner/Banner";
 
 function App(){
 
@@ -30,7 +32,10 @@ function App(){
       
       <Navbar/>
 
-      
+      <Banner
+      titulo="As melhores notícias sobre o espaço você encontra qui."
+      background={BannerImg}
+      />
 
       <section id="articles">
         {news.length === 0 ? (

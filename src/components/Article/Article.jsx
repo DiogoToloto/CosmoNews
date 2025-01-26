@@ -11,7 +11,7 @@ export function Article({title,provider,description,thumbnail}){
                     <p>{description}</p>
                     <br />
                     <br />
-                    <hr></hr>
+                   
                 </div>
             </article>
         );
