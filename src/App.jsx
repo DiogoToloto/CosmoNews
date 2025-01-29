@@ -1,73 +1,40 @@
 import React, { useEffect, useState } from "react";
-import "./styles/App.css"
-import { Navbar } from "./components/NavBar/Navbar"
-import { Article } from "./components/Article/Article";
-import axios from "axios";
-import { DNA } from 'react-loader-spinner'
+import "./styles/App.css";
+import { Navbar } from "./components/NavBar/Navbar";
 import { Footer } from "./components/Footer/Footer";
-import BannerImg from "./assets/images/banner.jpg"
+import BannerImg from "./assets/images/banner.jpg";
 import { Banner } from "./components/Banner/Banner";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Inicio } from "./pages/Inicio/Inicio";
 
-function App(){
-
+function App() {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
+    fetch("https://api.spaceflightnewsapi.net/v4/articles")
+      .then((response) => response.json())
+      .then((dados) => {
+        setNews(dados.results);
+      });
+  }, []);
 
-    async function loadNews() {
-      const response = await axios.get("https://api.spaceflightnewsapi.net/v4/articles");
-
-      const newsData = response.data.results || response.data;
-      setNews(newsData);
-    }
-
-    loadNews();
-
-    
-  }, [])
-
-    return (
-    <div>
-      
-      <Navbar/>
-
-      <Banner
-      titulo="As melhores notícias sobre o espaço você encontra qui."
-      background={BannerImg}
-      />
-
-      <section id="articles">
-        {news.length === 0 ? (
-          <div style={{height: "400px", width: "100%", display: "flex", justifyContent: "center", alignItems: "center"}}>
-            <DNA
-              visible={true}
-              height="80"
-              width="80"
-              ariaLabel="dna-loading"
-              wrapperStyle={{}}
-              wrapperClass="dna-wrapper"
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <Banner background={BannerImg} titulo="ola" />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Inicio
+              dados={news}
             />
-          </div>
-                    ) : (
-            news.map((article) => {
-            return(
-              <>
-                <Article 
-                key={article.id}
-                title={article.title}
-                provider={article.news_site} 
-                description={article.summary}
-                thumbnail={article.image_url}
-                font={article.url}
-              /> 
-              <hr />
-              </>
-         )
-        }))}
-      </section >
-
-      <Footer/>
-    </div>
+          }
+        ></Route>
+        <Route path=""></Route>
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 

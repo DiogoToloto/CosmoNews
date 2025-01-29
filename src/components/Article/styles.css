@@ -6,6 +6,7 @@
 #article img {
     border-radius: 10px;
     max-width: 350px;
+    max-height: 350px;
 }
 
 #article .article-infos h2 {

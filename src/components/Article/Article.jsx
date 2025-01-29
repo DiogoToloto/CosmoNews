@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
 
-export function Article({title,provider,description,thumbnail,font}){
+export function Article({title,provider,description,thumbnail,font,dataPublicacao}){
         return (
             <article id="article">
                 <img src={thumbnail} alt="" />
@@ -13,7 +13,6 @@ export function Article({title,provider,description,thumbnail,font}){
                     <p>{description}</p>
                     <br />
                     <br />
-                   
                 </div>
             </article>
         );
