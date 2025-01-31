@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Inicio } from "./pages/Inicio/Inicio";
 import { Pagina404 } from "./pages/Pagina404/Pagina404";
 import { PaginaPadrao } from "./components/PaginaPadrao/PaginaPadrao";
+import { Contato } from "./pages/Contato/Contato";
 
 function App() {
   const [news, setNews] = useState([]);
@@ -25,6 +26,7 @@ function App() {
       <Routes>
         <Route path="/" element={<PaginaPadrao background={BannerImg} titulo="Aqui você encontra as melhores notícias sobre lançamentos espaciais"/>}>
           <Route index element={<Inicio dados={news} />}></Route>
+          <Route path="/contato" element={<Contato/>}></Route>
         </Route>
         <Route path="*" element={<Pagina404 />}></Route>
       </Routes>
