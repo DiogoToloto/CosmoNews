@@ -19,7 +19,7 @@ export function Footer(){
                         <a href="https://github.com/diogotoloto" target="blanck"><VscGithub style={{color: "#fff", fontSize: "24px"}}/></a>
                     </div>
                 </div>
-                <p>Desenvolvido por DiogoToloto</p>
+                <p>&copy;Desenvolvido por DiogoToloto</p>
             </div>
         </footer>
     )
