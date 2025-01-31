@@ -1,5 +1,3 @@
-import { Banner } from "../../components/Banner/Banner";
-import { CampoInput } from "../../components/Campo/CampoInput";
 import "./styles.css";
 
 export const Contato = ({ background, titulo }) => {

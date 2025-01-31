@@ -35,9 +35,10 @@
 
     .container-contato figure {
         width: 400px;
+        margin: 0px 50px;
     }
 
     .container-form {
-        width: 90%;
+        width: 100%;
     }
 }
