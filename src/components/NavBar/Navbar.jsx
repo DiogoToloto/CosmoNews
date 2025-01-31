@@ -17,7 +17,7 @@ export function Navbar(){
                 <li><a href="/">Início</a></li>
                 <li><a href="/">Tendências</a></li>
                 <li><a href="/">Categorias</a></li>
-                <li><a href="/">Sobre Nós</a></li>
+                <li><a href="/">Contato</a></li>
               </ul>
             </div>
           </nav>

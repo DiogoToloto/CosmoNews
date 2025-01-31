@@ -15,7 +15,6 @@ header nav#navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     max-width: 1240px;
     height: 90px;
     margin: 0 auto;
@@ -39,7 +38,7 @@ header nav#navbar ul.nav-list {
     align-items: center;
     list-style: none;
     gap: 1rem;
-
+    margin: 0;
 }
 
 header nav#navbar ul.nav-list li a{
