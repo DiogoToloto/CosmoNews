@@ -5,6 +5,7 @@ a {
 
 header {
     position: fixed;
+    top: 0;
     background-color: #333333;
     box-shadow: 0 4px 7px rgba(0, 0, 0,0.25);
     width: 100%;
@@ -58,8 +59,7 @@ header nav#navbar ul.nav-list li a:hover {
         padding: 15px 0px;
     }
 
-    header nav#navbar {
-        display: flex;
-        flex-direction: column;
+    header nav#navbar ul.nav-list{
+         display: none;
     }
 }

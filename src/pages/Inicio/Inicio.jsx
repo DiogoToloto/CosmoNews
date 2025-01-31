@@ -1,9 +1,11 @@
 import { Article } from "../../components/Article/Article";
+import { Banner } from "../../components/Banner/Banner";
 import "./styles.css";
 
-export const Inicio = ({ dados }) => {
+export const Inicio = ({ dados, background, titulo }) => {
   return (
     <div>
+      <Banner background={background} titulo={titulo} />
       <section id="articles">
         {dados.map((article) => {
           return (
@@ -18,7 +20,7 @@ export const Inicio = ({ dados }) => {
               />
               <hr />
             </>
-          )
+          );
         })}
       </section>
     </div>

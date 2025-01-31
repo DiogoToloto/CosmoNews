@@ -6,8 +6,9 @@ import BannerImg from "./assets/images/banner.jpg";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Inicio } from "./pages/Inicio/Inicio";
 import { Pagina404 } from "./pages/Pagina404/Pagina404";
-import { PaginaPadrao } from "./components/PaginaPadrao/PaginaPadrao";
 import { Contato } from "./pages/Contato/Contato";
+import BannerPgnContt from "./assets/images/bannerContato.jpg"
+import { MenuHamburguer } from "./components/MenuHamburguer/MenuHamburguer";
 
 function App() {
   const [news, setNews] = useState([]);
@@ -24,10 +25,17 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<PaginaPadrao background={BannerImg} titulo="Aqui você encontra as melhores notícias sobre lançamentos espaciais"/>}>
-          <Route index element={<Inicio dados={news} />}></Route>
-          <Route path="/contato" element={<Contato/>}></Route>
-        </Route>
+        <Route
+          path="/"
+          element={
+            <Inicio
+              dados={news}
+              background={BannerImg}
+              titulo="Aqui você encontra as melhores notícias sobre lançamentos espaciais"
+            />
+          }
+        ></Route>
+        <Route path="/contato" element={<Contato background={BannerPgnContt} titulo="Contato" />}></Route>
         <Route path="*" element={<Pagina404 />}></Route>
       </Routes>
       <Footer />
