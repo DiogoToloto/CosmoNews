@@ -1,47 +1,42 @@
+import { CampoInput } from "../../components/Campo/CampoInput";
 import "./styles.css";
+import fundoContato from "../../assets/images/bannerContato.jpg";
 
-export const Contato = ({ background, titulo }) => {
+export const Contato = () => {
   return (
-    <div className="container-contato">
-    <figure>
-    <img src={background} class="img-fluid" alt="..."/>
-    </figure>
-      <section className="container-form">
-        <form action="">
-          <h1>Nos envie uma mensagem</h1>
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">
-              Nome:
-            </label>
-            <input
-              type="text"
-              class="form-control"
-              id="exampleFormControlInput1"
-              placeholder="Digite seu nome"
+    <section className="contato d">
+      <div className="contato-banner" style={{ backgroundImage: `url(${fundoContato})` }}></div>
+
+      <div className="contato-form-container m-auto">
+        <form className="contato-form">
+          <h1 className="contato-titulo">Nos Envie Uma Mensagem</h1>
+
+          <div className="contato-input-group">
+            <CampoInput 
+            placeholder="Nome Completo"
+            type="text"
             />
-            <label for="exampleFormControlInput1" class="form-label">
-              E-mail:
-            </label>
-            <input
-              type="email"
-              class="form-control"
-              id="exampleFormControlInput1"
-              placeholder="nome@exemplo.com"
+            <CampoInput 
+            placeholder="Numero"
+            type="number"
             />
           </div>
-          <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">
-              Example textarea
-            </label>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="3"
+
+          <div className="contato-mensagem-group">
+            <CampoInput 
+            placeholder="E-mail"
+            type="email"
+            />
+            <textarea 
+              className="contato-textarea" 
+              id="mensagem" 
+              rows="5" 
+              placeholder="Digite sua mensagem aqui..."
             ></textarea>
           </div>
-          <button type="submit" class="btn btn-secondary">Enviar</button>
+          <button className="p-1 btn btn-light w-25 h-25">Enviar</button>
         </form>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };

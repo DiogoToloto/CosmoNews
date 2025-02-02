@@ -1,18 +1,17 @@
 import "./styles.css";
 
-export const CampoInput = ({ placeholder }) => {
+export const CampoInput = ({ placeholder, type }) => {
   return (
     <>
       <div class="input-group flex-nowrap">
-        <span class="input-group-text" id="addon-wrapping">
-          @
-        </span>
+        
         <input
-          type="text"
+          type={type}
           class="form-control"
-          placeholder="Username"
+          placeholder={placeholder}
           aria-label="Username"
           aria-describedby="addon-wrapping"
+          required
         />
       </div>
     </>
