@@ -2,8 +2,10 @@ import React from "react";
 import logoImg from "../../assets/images/logo.png";
 import "./styles.css";
 import { MenuHamburguer } from "../MenuHamburguer/MenuHamburguer";
+import { DropDown } from "../DropDown/DropDown";
+import { CampoInput } from "../Campo/CampoInput";
 
-export function Navbar() {
+export function Navbar({onChange}) {
   return (
     <header>
       <nav id="navbar">
@@ -13,6 +15,7 @@ export function Navbar() {
           </picture>
           <h1>CosmoNews</h1>
         </div>
+        <CampoInput onChange={onChange}/>
         <div>
           <ul className="nav-list">
             <li>
@@ -21,33 +24,7 @@ export function Navbar() {
             <li>
               <a href="/">Tendências</a>
             </li>
-            <div className="dropdown">
-              <button
-                className="btn text-light dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Categorias
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
-              </ul>
-            </div>
+            <DropDown/>
             <li>
               <a href="/contato">Contato</a>
             </li>

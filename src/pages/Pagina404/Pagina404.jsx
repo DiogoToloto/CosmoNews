@@ -12,7 +12,7 @@ export const Pagina404 = () => {
         Tem certeza que era isso que você estava procurando? Aguarde uns
         instantes e recarregue a página ou volte para a página inicial.
       </p>
-      <button onClick={() => {
+      <button className="btn btn-danger px-4" onClick={() => {
         navegacao('/')
       }}>Voltar</button>
     </div>
