@@ -1,42 +1,64 @@
+import { useState } from "react";
 import { CampoInput } from "../../components/Campo/CampoInput";
 import "./styles.css";
-import fundoContato from "../../assets/images/bannerContato.jpg";
 
 export const Contato = () => {
+  const [nome, setNome] = useState("");
+  const [numero, setNumero] = useState("");
+  const [email, setEmail] = useState("");
+
+  function HandleSubmit(event) {
+    event.preventDefault();
+    alert("Mensagem enviada com sucesso!");
+
+    setNome("");
+    setNumero("");
+    setEmail("");
+  }
+
   return (
-    <section className="contato d">
-      <div className="contato-banner" style={{ backgroundImage: `url(${fundoContato})` }}></div>
-
-      <div className="contato-form-container m-auto">
-        <form className="contato-form">
-          <h1 className="contato-titulo">Nos Envie Uma Mensagem</h1>
-
-          <div className="contato-input-group">
-            <CampoInput 
-            placeholder="Nome Completo"
-            type="text"
-            />
-            <CampoInput 
-            placeholder="Numero"
-            type="number"
-            />
-          </div>
-
-          <div className="contato-mensagem-group">
-            <CampoInput 
-            placeholder="E-mail"
-            type="email"
-            />
-            <textarea 
-              className="contato-textarea" 
-              id="mensagem" 
-              rows="5" 
-              placeholder="Digite sua mensagem aqui..."
-            ></textarea>
-          </div>
-          <button className="p-1 btn btn-light w-25 h-25">Enviar</button>
-        </form>
-      </div>
+    <section className="container-contato d-flex flex-column align-items-center justify-content-center">
+      <h1 className=" m-4">Contato</h1>
+      <form
+        action=""
+        className="container-form d-flex flex-column"
+        onSubmit={HandleSubmit}
+      >
+        <CampoInput
+          placeholder="Nome Completo"
+          id="idNome"
+          type="text"
+          label="Nome:"
+          value={nome}
+          onChange={(e) => setNome(e.target.value)}
+        />
+        <CampoInput
+          placeholder="Número de contato"
+          id="idNumero"
+          type="number"
+          label="Número:"
+          value={numero}
+          onChange={(e) => setNumero(e.target.value)}
+        />
+        <CampoInput
+          placeholder="E-mail"
+          id="idEmail"
+          type="email"
+          label="E-mail:"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <textarea
+          class="form-control"
+          id="exampleFormControlTextarea1"
+          rows="6"
+          placeholder="Digite a sua mensagem."
+          required
+        ></textarea>
+        <button type="submit" class="btn btn-success  w-25">
+          Enviar
+        </button>
+      </form>
     </section>
   );
 };
