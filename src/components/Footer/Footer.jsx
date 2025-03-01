@@ -10,10 +10,10 @@ export function Footer(){
             <div id="container-footer">
                 <div id="container-logos">
                     <div>
-                        <a href=""><SiLinkedin style={{color: "#fff", fontSize: "24px"}} /></a>
+                        <a href="https://www.linkedin.com/in/diogo-toloto-programador/"><SiLinkedin style={{color: "#fff", fontSize: "24px"}} /></a>
                     </div>
                     <div>
-                        <a href=""><FaWhatsappSquare style={{color: "#fff", fontSize: "24px"}}/></a>
+                        <a href=" https://wa.me/11969223602"><FaWhatsappSquare style={{color: "#fff", fontSize: "24px"}}/></a>
                     </div>
                     <div>
                         <a href="https://github.com/diogotoloto" target="blanck"><VscGithub style={{color: "#fff", fontSize: "24px"}}/></a>

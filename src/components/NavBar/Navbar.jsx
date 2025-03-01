@@ -3,7 +3,6 @@ import logoImg from "../../assets/images/logo.png";
 import "./styles.css";
 import { MenuHamburguer } from "../MenuHamburguer/MenuHamburguer";
 import { DropDown } from "../DropDown/DropDown";
-import { CampoInput } from "../Campo/CampoInput";
 
 export function Navbar({onChange}) {
   return (
@@ -15,7 +14,10 @@ export function Navbar({onChange}) {
           </picture>
           <h1>CosmoNews</h1>
         </div>
-        <CampoInput onChange={onChange}/>
+        <div className="comtainer-busca" >
+          <label htmlFor=""></label>
+          <input type="text" onChange={onChange} className="campo-busca" placeholder="Busque por agencia:"/>
+        </div>
         <div>
           <ul className="nav-list">
             <li>
