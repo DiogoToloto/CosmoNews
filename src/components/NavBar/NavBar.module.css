@@ -49,8 +49,9 @@
 }
 
 @media screen and (max-width: 700px) {
-    .header {
-        padding: 15px 0px;
+
+    .navegacao{
+        height: 70px;
     }
 
     .navList {
