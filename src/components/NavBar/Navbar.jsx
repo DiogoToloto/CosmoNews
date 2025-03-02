@@ -1,39 +1,28 @@
 import React from "react";
 import logoImg from "../../assets/images/logo.png";
-import "./styles.css";
+import styles from "./NavBar.module.css";
 import { MenuHamburguer } from "../MenuHamburguer/MenuHamburguer";
-import { DropDown } from "../DropDown/DropDown";
+import NavBarLink from "../NavLink/NavBarLink";
 
 export function Navbar({onChange}) {
   return (
-    <header>
-      <nav id="navbar">
-        <div className="nav-brand">
+    <header className={styles.header}>
+      <div className={styles.navegacao}>
+        <div className={styles.navBrand}>
           <picture>
             <img src={logoImg} alt="" />
           </picture>
           <h1>CosmoNews</h1>
         </div>
-        <div className="comtainer-busca" >
-          <label htmlFor=""></label>
-          <input type="text" onChange={onChange} className="campo-busca" placeholder="Busque por agencia:"/>
-        </div>
         <div>
-          <ul className="nav-list">
-            <li>
-              <a href="/">Início</a>
-            </li>
-            <li>
-              <a href="/">Tendências</a>
-            </li>
-            <DropDown/>
-            <li>
-              <a href="/contato">Contato</a>
-            </li>
-          </ul>
+          <nav className={styles.navList}>
+            <NavBarLink to={"/"}>Início</NavBarLink>
+            <NavBarLink to={"/noticias"}>Notícias</NavBarLink>
+            <NavBarLink to={"/Contato"}>Contato</NavBarLink>
+          </nav>
         </div>
         <MenuHamburguer/>
-      </nav>
+      </div>
     </header>
   );
 }

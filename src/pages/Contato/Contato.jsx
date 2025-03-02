@@ -35,7 +35,7 @@ export const Contato = () => {
         <CampoInput
           placeholder="Número de contato"
           id="idNumero"
-          type="number"
+          type="text"
           label="Número:"
           value={numero}
           onChange={(e) => setNumero(e.target.value)}

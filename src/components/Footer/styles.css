@@ -4,15 +4,34 @@ footer {
     width: 100%;
 }
 
-footer #container-footer {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: space-between;
-    align-items: center;
+.logo-footer{
+    font-family: 'Grenze', serif;
 }
 
 footer #container-footer #container-logos {
     display: flex;
     gap: 0.5rem;
+}
+
+.titulo-paginas{
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.container-links-paginas{
+    ul {
+        list-style: none;
+    }
+}
+
+.container-links-mais {
+
+    .titulo-mais{
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    ul{
+        list-style: none;
+    }
 }
