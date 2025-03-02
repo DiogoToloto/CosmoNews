@@ -15,7 +15,7 @@ export function Footer() {
           Cosmo<strong>News</strong>
         </h2>
       </div>
-      <div className="d-flex align-items-center gap-5">
+      <div className="container-info d-flex align-items-center gap-sm-5">
         <div className="container-links-paginas">
           <h4 className="titulo-paginas">Paginas</h4>
           <ul className="p-0">

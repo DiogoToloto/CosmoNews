@@ -18,7 +18,8 @@ export function Navbar({onChange}) {
           <nav className={styles.navList}>
             <NavBarLink to={"/"}>Início</NavBarLink>
             <NavBarLink to={"/noticias"}>Notícias</NavBarLink>
-            <NavBarLink to={"/Contato"}>Contato</NavBarLink>
+            <NavBarLink to={"/contato"}>Contato</NavBarLink>
+            <NavBarLink to={"/galeria"}>Galeria</NavBarLink>
           </nav>
         </div>
         <MenuHamburguer/>

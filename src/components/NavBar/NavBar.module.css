@@ -46,11 +46,7 @@
         
     }
 
-    .campo-busca {
-        display: none;
-    }
-
-    header nav#navbar ul.nav-list{
+    .navList{
          display: none;
     }
 }

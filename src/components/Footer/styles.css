@@ -35,3 +35,12 @@ footer #container-footer #container-logos {
         list-style: none;
     }
 }
+
+@media screen and (max-width: 700px) {
+    
+    .container-info{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+}
