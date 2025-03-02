@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./styles/App.css";
-import BannerImg from "./assets/images/banner.jpg";
+import BannerImg from "./assets/images/banner2.jpg";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AppRoutes from "./routes";
 import { Navbar } from "./components/NavBar/Navbar";
