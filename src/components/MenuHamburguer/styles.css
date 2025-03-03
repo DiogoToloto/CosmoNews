@@ -5,6 +5,10 @@
     font-size: 24px;
 }
 
+.logo {
+    font-family: 'Grenze',serif;
+}
+
 @media (max-width: 700px) {
     .container-fluid{
         display: block;

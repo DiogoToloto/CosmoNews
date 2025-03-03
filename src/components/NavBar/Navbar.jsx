@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logoImg from "../../assets/images/logo.png";
+import logoImg from "../../assets/images/logo1.png";
 import styles from "./NavBar.module.css";
 import { MenuHamburguer } from "../MenuHamburguer/MenuHamburguer";
 import NavBarLink from "../NavLink/NavBarLink";
@@ -39,7 +39,7 @@ export function Navbar({ onChange }) {
           <picture>
             <img src={logoImg} alt="" />
           </picture>
-          <h1>CosmoNews</h1>
+          <h1>Cosmo<strong>News</strong></h1>
         </div>
         <div>
           <nav className={styles.navList}>

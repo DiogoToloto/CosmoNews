@@ -23,8 +23,8 @@ export const MenuHamburguer = () => {
       >
         <div className="offcanvas-header">
           <img src={logoImg} alt="" />
-          <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">
-            CosmoNews
+          <h5 className="logo offcanvas-title" id="offcanvasDarkNavbarLabel">
+            Cosmo<strong>News</strong>
           </h5>
           <button
             type="button"
@@ -42,43 +42,17 @@ export const MenuHamburguer = () => {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/">
-                Tendencias
+                Notícias
               </a>
-            </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Categorias
-              </a>
-              <ul className="dropdown-menu dropdown-menu-dark">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
-              </ul>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/contato">
                 Contato
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/galeria">
+                Galeria
               </a>
             </li>
           </ul>
