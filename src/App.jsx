@@ -1,81 +1,99 @@
 import React, { useEffect, useState } from "react";
 import "./styles/App.css";
 import BannerImg from "./assets/images/banner2.jpg";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./routes";
 import { Navbar } from "./components/NavBar/Navbar";
 import { Footer } from "./components/Footer/Footer";
-import { BeatLoader } from "react-spinners"; // 1. Importando o componente BeatLoader da biblioteca react-spinners
+import { BeatLoader } from "react-spinners";
 
 function App() {
-  const [news, setNews] = useState([]); // Estado para armazenar os dados das notícias
-  const [search, setSearch] = useState(""); // Estado para armazenar o termo de busca
-  const [loading, setLoading] = useState(true); // 2. Estado para controlar o loading, inicializado como true
+  const [news, setNews] = useState([]); // Todas as notícias
+  const [lastNews, setLastNews] = useState([]); // Últimas 10 notícias
+  const [search, setSearch] = useState(""); 
+  const [loading, setLoading] = useState(true);
+  const [pagina, setPagina] = useState(1);
+  const [totalPaginas, setTotalPaginas] = useState(1);
+  const limite = 10;
 
   useEffect(() => {
-    // 3. Efeito useEffect para buscar os dados iniciais das notícias
-    fetch(`https://api.spaceflightnewsapi.net/v4/articles/`)
-      .then((response) => response.json())
-      .then((dados) => {
-        setNews(dados.results); // Atualiza o estado news com os dados recebidos
-        setLoading(false); // 4. Desativa o loading quando os dados são carregados com sucesso
-      })
-      .catch(() => {
-        setLoading(false); // 5. Desativa o loading em caso de erro na requisição
-      });
-  }, []);
+    const buscarNoticias = async () => {
+      setLoading(true);
+      try {
+        // Requisição para as últimas 10 notícias
+        const response = await fetch(
+          `https://api.spaceflightnewsapi.net/v4/articles/?limit=${limite}&offset=0`
+        );
+        const dados = await response.json();
+        setLastNews(dados.results);
+
+        // Requisição para as demais notícias
+        const responseAll = await fetch(
+          `https://api.spaceflightnewsapi.net/v4/articles/?limit=${limite}&offset=${(pagina) * limite}`
+        );
+        const dadosAll = await responseAll.json();
+        setNews(dadosAll.results);
+
+        // Atualiza o total de páginas baseado na contagem de artigos
+        setTotalPaginas(Math.ceil((dadosAll.count || 100) / limite));
+      } catch (erro) {
+        console.error("Erro ao buscar notícias:", erro);
+      }
+      setLoading(false);
+    };
+
+    buscarNoticias();
+  }, [pagina]);
 
   useEffect(() => {
-    // 6. Efeito useEffect para buscar notícias com base no termo de busca
-    if (search && search.length >= 4) {
-      // 7. Se o termo de busca existir e tiver pelo menos 4 caracteres
+    if (search.length >= 4) {
       fetch(
-        `https://api.spaceflightnewsapi.net/v4/articles?news_site=${search}`
+        `https://api.spaceflightnewsapi.net/v4/articles?title_contains=${search}`
       )
         .then((response) => response.json())
         .then((dados) => {
-          setNews(dados.results); // Atualiza o estado news com os dados recebidos
-          setLoading(false); // 8. Desativa o loading quando os dados são carregados com sucesso
+          setNews(dados.results);
+          setLoading(false);
         })
-        .catch(() => {
-          setLoading(false); // 9. Desativa o loading em caso de erro na requisição
-        });
+        .catch(() => setLoading(false));
     } else if (search === "") {
-      // 10. Se o termo de busca estiver vazio, busca todas as notícias novamente
-      fetch(`https://api.spaceflightnewsapi.net/v4/articles/`)
+      setLoading(true);
+      fetch(
+        `https://api.spaceflightnewsapi.net/v4/articles/?limit=${limite}&offset=${(pagina - 1) * limite}`
+      )
         .then((response) => response.json())
         .then((dados) => {
-          setNews(dados.results); // Atualiza o estado news com os dados recebidos
-          setLoading(false); // 11. Desativa o loading quando os dados são carregados com sucesso
+          setNews(dados.results);
+          setLoading(false);
         })
-        .catch(() => {
-          setLoading(false); // 12. Desativa o loading em caso de erro na requisição
-        });
+        .catch(() => setLoading(false));
     }
-  }, [search]); // 13. O efeito useEffect é executado sempre que o estado search muda
+  }, [search, pagina]);
 
   if (loading) {
-    // 14. Se o estado loading for true, renderiza o componente de loading
     return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      >
+      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
         <BeatLoader color={"#36D7B7"} loading={loading} size={15} />
-        {/* 15. Renderiza o componente BeatLoader com as propriedades de cor, loading e tamanho */}
       </div>
     );
   }
 
+  const handleChange = (event) => {
+    setSearch(event.target.value);
+  };
+
   return (
-    // 16. Se o estado loading for false, renderiza o conteúdo principal da aplicação
     <BrowserRouter>
       <Navbar />
-      <AppRoutes news={news} BannerImg={BannerImg} />
+      <AppRoutes 
+        lastNews={lastNews} 
+        news={news} 
+        BannerImg={BannerImg} 
+        handleChange={handleChange} 
+        pagina={pagina} 
+        setPagina={setPagina} 
+        totalPaginas={totalPaginas} 
+      />
       <Footer />
     </BrowserRouter>
   );

@@ -2,12 +2,12 @@ import { Article } from "../../components/Article/Article";
 import { Banner } from "../../components/Banner/Banner";
 import "./styles.css";
 
-export const Inicio = ({ dados, background, titulo }) => {
+export const Inicio = ({ lastNews, background, titulo }) => {
   return (
     <div>
       <Banner background={background} titulo={titulo} />
       <section id="articles">
-        {dados.map((article) => {
+        {lastNews.map((article) => {
           return (
             <>
               <Article
