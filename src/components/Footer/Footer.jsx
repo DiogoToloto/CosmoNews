@@ -20,13 +20,13 @@ export function Footer() {
           <h4 className="titulo-paginas">Paginas</h4>
           <ul className="p-0">
             <li>
-              <a href="/">Noticias</a>
+              <a href="/noticias">Noticias</a>
             </li>
             <li>
-              <a href="/"></a>Contato
+              <a href="/contato">Contato</a>
             </li>
             <li>
-              <a href="/">Galeria</a>
+              <a href="/galeria">Galeria</a>
             </li>
           </ul>
         </div>
@@ -37,7 +37,7 @@ export function Footer() {
               <a href="/">Termos e condiçoes</a>
             </li>
             <li>
-              <a href="/"></a>Politica de privacidade
+              <a href="/">Politica de privacidade</a>
             </li>
             <li>
               <a href="/">Politica de cookies</a>

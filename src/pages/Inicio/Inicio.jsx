@@ -1,12 +1,33 @@
+import styled from "styled-components";
 import { Article } from "../../components/Article/Article";
 import { Banner } from "../../components/Banner/Banner";
-import "./styles.css";
+
+const InicioContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 700px) {
+    hr {
+      display: none;
+    }
+  }
+`;
+
+const ArtigosContainer = styled.section`
+  max-width: 1240px;
+  padding: 0 2rem;
+  margin: 4rem auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+`;
 
 export const Inicio = ({ lastNews, background, titulo }) => {
   return (
-    <div>
+    <InicioContainer>
       <Banner background={background} titulo={titulo} />
-      <section id="articles">
+      <ArtigosContainer>
         {lastNews.map((article) => {
           return (
             <>
@@ -22,7 +43,7 @@ export const Inicio = ({ lastNews, background, titulo }) => {
             </>
           );
         })}
-      </section>
-    </div>
+      </ArtigosContainer>
+    </InicioContainer>
   );
 };

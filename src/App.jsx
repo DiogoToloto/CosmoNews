@@ -6,11 +6,27 @@ import AppRoutes from "./routes";
 import { Navbar } from "./components/NavBar/Navbar";
 import { Footer } from "./components/Footer/Footer";
 import { BeatLoader } from "react-spinners";
+import { createGlobalStyle } from "styled-components";
+
+const EstiloGlobal = createGlobalStyle`
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #222;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+`;
 
 function App() {
   const [news, setNews] = useState([]); // Todas as notícias
   const [lastNews, setLastNews] = useState([]); // Últimas 10 notícias
-  const [search, setSearch] = useState(""); 
+  const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
   const [pagina, setPagina] = useState(1);
   const [totalPaginas, setTotalPaginas] = useState(1);
@@ -29,7 +45,9 @@ function App() {
 
         // Requisição para as demais notícias
         const responseAll = await fetch(
-          `https://api.spaceflightnewsapi.net/v4/articles/?limit=${limite}&offset=${(pagina) * limite}`
+          `https://api.spaceflightnewsapi.net/v4/articles/?limit=${limite}&offset=${
+            pagina * limite
+          }`
         );
         const dadosAll = await responseAll.json();
         setNews(dadosAll.results);
@@ -46,7 +64,7 @@ function App() {
   }, [pagina]);
 
   useEffect(() => {
-    if (search.length >= 4) {
+    if (search.length >= 3) {
       fetch(
         `https://api.spaceflightnewsapi.net/v4/articles?title_contains=${search}`
       )
@@ -59,7 +77,9 @@ function App() {
     } else if (search === "") {
       setLoading(true);
       fetch(
-        `https://api.spaceflightnewsapi.net/v4/articles/?limit=${limite}&offset=${(pagina - 1) * limite}`
+        `https://api.spaceflightnewsapi.net/v4/articles/?limit=${limite}&offset=${
+          (pagina - 1) * limite
+        }`
       )
         .then((response) => response.json())
         .then((dados) => {
@@ -72,7 +92,14 @@ function App() {
 
   if (loading) {
     return (
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
         <BeatLoader color={"#36D7B7"} loading={loading} size={15} />
       </div>
     );
@@ -84,15 +111,16 @@ function App() {
 
   return (
     <BrowserRouter>
+      <EstiloGlobal />
       <Navbar />
-      <AppRoutes 
-        lastNews={lastNews} 
-        news={news} 
-        BannerImg={BannerImg} 
-        handleChange={handleChange} 
-        pagina={pagina} 
-        setPagina={setPagina} 
-        totalPaginas={totalPaginas} 
+      <AppRoutes
+        lastNews={lastNews}
+        news={news}
+        BannerImg={BannerImg}
+        handleChange={handleChange}
+        pagina={pagina}
+        setPagina={setPagina}
+        totalPaginas={totalPaginas}
       />
       <Footer />
     </BrowserRouter>
