@@ -5,6 +5,7 @@ import { Banner } from "../../components/Banner/Banner";
 const InicioContainer = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 55px;
 
   @media (min-width: 700px) {
     hr {
@@ -13,11 +14,16 @@ const InicioContainer = styled.div`
   }
 `;
 
+const Titulo = styled.h2`
+  font-size: 3rem;
+  margin: auto;
+`
+
 const ArtigosContainer = styled.section`
   max-width: 1240px;
   padding: 0 2rem;
-  margin: 4rem auto;
-
+  margin: auto;
+  margin-bottom: 4rem;
   display: flex;
   flex-direction: column;
   gap: 46px;
@@ -27,6 +33,7 @@ export const Inicio = ({ lastNews, background, titulo }) => {
   return (
     <InicioContainer>
       <Banner background={background} titulo={titulo} />
+      <Titulo>Últimas Notícias</Titulo>
       <ArtigosContainer>
         {lastNews.map((article) => {
           return (

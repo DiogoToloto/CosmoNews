@@ -11,7 +11,8 @@ const AppRoutes = ({
   pagina = { pagina },
   setPagina = { setPagina },
   totalPaginas = { totalPaginas },
-  lastNews={lastNews}
+  lastNews={lastNews},
+  aoClicarNaTag={aoClicarNaTag}
 }) => {
   return (
     <Routes>
@@ -35,6 +36,7 @@ const AppRoutes = ({
             pagina={pagina}
             setPagina={setPagina}
             totalPaginas={totalPaginas}
+            aoClicarNaTag={aoClicarNaTag}
           />
         }
       />

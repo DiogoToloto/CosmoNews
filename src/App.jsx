@@ -109,6 +109,11 @@ function App() {
     setSearch(event.target.value);
   };
 
+  const aoClicarNaTag = (tag) => {
+    setSearch(tag)
+    console.log(tag)
+  }
+
   return (
     <BrowserRouter>
       <EstiloGlobal />
@@ -121,6 +126,7 @@ function App() {
         pagina={pagina}
         setPagina={setPagina}
         totalPaginas={totalPaginas}
+        aoClicarNaTag={aoClicarNaTag}
       />
       <Footer />
     </BrowserRouter>

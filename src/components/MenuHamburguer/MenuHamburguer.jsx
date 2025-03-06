@@ -45,6 +45,10 @@ const MenuButton = styled.button`
   /* Esconde o botão quando o menu está aberto */
   opacity: ${({ isOpen }) => (isOpen ? "0" : "1")};
   pointer-events: ${({ isOpen }) => (isOpen ? "none" : "auto")};
+
+  @media (min-width: 700px){
+    display: none;
+  }
 `;
 
 const MenuOverlay = styled.div`
@@ -71,7 +75,7 @@ const CloseButton = styled.button`
   border: none;
   color: white;
   cursor: pointer;
-`;
+  `
 
 const MenuContent = styled.div`
   /* Quando o menu está fechado, oculta o conteúdo */

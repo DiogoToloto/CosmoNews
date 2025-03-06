@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import { Article } from "../../components/Article/Article";
+import { Tags } from "../../components/Tags/Tags";
+import { useState } from "react";
 
 const NoticiasContainer = styled.div`
+  max-width: 1240px;
+  margin: auto;
   margin-top: 90px;
-
   @media (min-width: 700px) {
     hr {
       display: none;
@@ -15,9 +18,9 @@ const CampoBuscaContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 75%;
-  margin: 0px auto;
+  margin: auto;
   padding: 40px 0px;
+  gap: 5px;
 `;
 
 const ArtigosContainer = styled.section`
@@ -34,10 +37,10 @@ const InputBusca = styled.input`
   background-color: transparent;
   border: 2px solid #333;
   border-radius: 10px;
-  margin: 0px 20px;
+
   padding: 5px;
   color: rgb(214, 214, 214);
-  width: 75%;
+  width: 80%;
 
   ::placeholder {
     color: rgb(214, 214, 214);
@@ -57,7 +60,19 @@ const PaginationContainer = styled.div`
   margin-bottom: 25px;
 `;
 
-const Noticias = ({ dados, handleChange, pagina, setPagina, totalPaginas }) => {
+const TagsContainer = styled.div`
+  display: flex;
+  gap: 15px;
+  padding: 0px 2rem;
+  flex-wrap: wrap;
+`;
+
+const TituloTag = styled.h3`
+  font-size: 1rem;
+`;
+
+const Noticias = ({ dados, handleChange, pagina, setPagina, totalPaginas, aoClicarNaTag }) => {
+
   return (
     <NoticiasContainer>
       <CampoBuscaContainer>
@@ -68,6 +83,15 @@ const Noticias = ({ dados, handleChange, pagina, setPagina, totalPaginas }) => {
           placeholder="Busque por título"
         />
       </CampoBuscaContainer>
+
+      <TagsContainer>
+        <TituloTag>Busque por tags:</TituloTag>
+        <Tags value="Nasa" onClick={aoClicarNaTag}/>
+        <Tags value="SpaceX" onClick={aoClicarNaTag}/>
+        <Tags value="Esa" onClick={aoClicarNaTag}/>
+        <Tags value="SpaceNews" onClick={aoClicarNaTag}/>
+        <Tags value="Launches" onClick={aoClicarNaTag}/>
+      </TagsContainer>
 
       <section id="articles">
         {dados.map((article) => (
