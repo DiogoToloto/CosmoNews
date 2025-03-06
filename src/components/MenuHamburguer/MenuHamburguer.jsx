@@ -94,13 +94,16 @@ const MenuContent = styled.div`
     font-size: 1.5rem;
   }
 
+  li:hover{
+    border: 1px solid #fff;
+    margin-left: -30px;
+    padding-left: 20px;
+  }
+
   a{
     text-decoration: none;
     color: aliceblue;
-  }
-
-  a:hover{
-    text-decoration: underline;
+    font-size: 1rem;
   }
 `;
 

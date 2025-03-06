@@ -6,7 +6,6 @@ import { MdEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 
 const SectionContainer = styled.section`
-
   display: flex;
   justify-content: space-around;
   padding: 50px;
@@ -15,7 +14,7 @@ const SectionContainer = styled.section`
   padding: 3.5rem 0;
   margin: 90px auto;
 
-  @media (max-width: 700px ) {
+  @media (max-width: 700px) {
     flex-direction: column;
     align-items: center;
   }
@@ -26,7 +25,7 @@ const ContatosContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (max-width: 700px ) {
+  @media (max-width: 700px) {
     width: 90%;
   }
 `;
@@ -49,7 +48,7 @@ const FormContainer = styled.form`
   gap: 24px;
   width: 50%;
 
-  @media (max-width: 700px ) {
+  @media (max-width: 700px) {
     width: 90%;
   }
 `;
@@ -64,6 +63,7 @@ export const Contato = () => {
   const [nome, setNome] = useState("");
   const [numero, setNumero] = useState("");
   const [email, setEmail] = useState("");
+  const [mensagem, setMensagem] = useState("");
 
   function HandleSubmit(event) {
     event.preventDefault();
@@ -72,6 +72,7 @@ export const Contato = () => {
     setNome("");
     setNumero("");
     setEmail("");
+    setMensagem("");
   }
 
   return (
@@ -101,7 +102,7 @@ export const Contato = () => {
       >
         <InputContainer>
           <CampoInput
-            placeholder="Nome Completo"
+            placeholder="Nome"
             id="idNome"
             type="text"
             label=""
@@ -109,7 +110,7 @@ export const Contato = () => {
             onChange={(e) => setNome(e.target.value)}
           />
           <CampoInput
-            placeholder="Número de contato"
+            placeholder="Número"
             id="idNumero"
             type="text"
             label=""
@@ -131,6 +132,8 @@ export const Contato = () => {
           rows="6"
           placeholder="Digite a sua mensagem."
           required
+          value={mensagem}
+          onChange={(e) => setMensagem(e.target.value)}
         ></textarea>
         <button type="submit" class="btn btn-success  w-25">
           Enviar

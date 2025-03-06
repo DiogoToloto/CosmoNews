@@ -62,6 +62,7 @@ const PaginationContainer = styled.div`
 
 const TagsContainer = styled.div`
   display: flex;
+  align-items: center;
   gap: 15px;
   padding: 0px 2rem;
   flex-wrap: wrap;

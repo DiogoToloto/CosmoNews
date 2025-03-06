@@ -3,6 +3,7 @@ import { Inicio } from "./pages/Inicio/Inicio";
 import { Pagina404 } from "./pages/Pagina404/Pagina404";
 import { Contato } from "./pages/Contato/Contato";
 import Noticias from "./pages/Noticias/noticia";
+import { Galeria } from "./pages/Galeria/Galeria";
 
 const AppRoutes = ({
   news,
@@ -40,7 +41,8 @@ const AppRoutes = ({
           />
         }
       />
-      <Route path="/contato" element={<Contato titulo="Contato" />}></Route>
+      <Route path="/contato" element={<Contato/>}></Route>
+      <Route path="/galeria" element={<Galeria/>}></Route>
       <Route path="*" element={<Pagina404 />}></Route>
     </Routes>
   );
