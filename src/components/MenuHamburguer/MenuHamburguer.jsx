@@ -1,63 +1,103 @@
+import { useState } from "react";
+import styled from "styled-components";
 import { CiMenuBurger } from "react-icons/ci";
-import "./styles.css";
-import logoImg from "../../assets/images/logo.png";
+import { IoMdClose } from "react-icons/io";
 
-export const MenuHamburguer = () => {
+const MenuHamburger = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="container-fluid">
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasDarkNavbar"
-        aria-controls="offcanvasDarkNavbar"
-        aria-label="Toggle navigation"
-      >
-        <CiMenuBurger />
-      </button>
-      <div
-        className="offcanvas offcanvas-end text-bg-dark"
-        tabindex="-1"
-        id="offcanvasDarkNavbar"
-        aria-labelledby="offcanvasDarkNavbarLabel"
-      >
-        <div className="offcanvas-header">
-          <img src={logoImg} alt="" />
-          <h5 className="logo offcanvas-title" id="offcanvasDarkNavbarLabel">
-            Cosmo<strong>News</strong>
-          </h5>
-          <button
-            type="button"
-            className="btn-close btn-close-white"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div className="offcanvas-body">
-          <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
-                Inicio
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/">
-                Notícias
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/contato">
-                Contato
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/galeria">
-                Galeria
-              </a>
-            </li>
+    <>
+      {/* Botão de Menu */}
+      <MenuButton isOpen={isOpen} onClick={() => setIsOpen(true)}>
+        <CiMenuBurger size={30} color="#fff" />
+      </MenuButton>
+
+      {/* Menu Expandido */}
+      <MenuOverlay isOpen={isOpen}>
+        <CloseButton onClick={() => setIsOpen(false)}>
+          <IoMdClose size={30} />
+        </CloseButton>
+        <MenuContent isOpen={isOpen}>
+          <ul>
+            <li><a href="/">INÍCIO</a></li>
+            <li><a href="/noticias">NOTÍCIAS</a></li>
+            <li><a href="/contato">CONTATO</a></li>
+            <li><a href="/galeria">GALERIA</a></li>
           </ul>
-        </div>
-      </div>
-    </div>
+        </MenuContent>
+      </MenuOverlay>
+    </>
   );
 };
+
+// Estilos
+const MenuButton = styled.button`
+ 
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 0;
+  transition: opacity ease-in-out;
+
+  /* Esconde o botão quando o menu está aberto */
+  opacity: ${({ isOpen }) => (isOpen ? "0" : "1")};
+  pointer-events: ${({ isOpen }) => (isOpen ? "none" : "auto")};
+`;
+
+const MenuOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  z-index: 99;
+
+  width: ${({ isOpen }) => (isOpen ? "50%" : "0%")}; /* Animação da largura */
+  transition: width 0.5s ease-in-out;
+  overflow: hidden; /* Evita rolagem quando fechar */
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+`;
+
+const MenuContent = styled.div`
+  /* Quando o menu está fechado, oculta o conteúdo */
+  opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
+  visibility: ${({ isOpen }) => (isOpen ? "visible" : "hidden")};
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+
+  ul {
+    list-style: none;
+    padding: 50px 0px 0px 30px;
+  }
+
+  li {
+    margin: 20px 0;
+    cursor: pointer;
+    font-size: 1.5rem;
+  }
+
+  a{
+    text-decoration: none;
+    color: aliceblue;
+  }
+
+  a:hover{
+    text-decoration: underline;
+  }
+`;
+
+export default MenuHamburger;

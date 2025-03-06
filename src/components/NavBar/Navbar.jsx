@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import logoImg from "../../assets/images/logo1.png";
 import styles from "./NavBar.module.css";
-import { MenuHamburguer } from "../MenuHamburguer/MenuHamburguer";
 import NavBarLink from "../NavLink/NavBarLink";
 import { useLocation } from "react-router-dom";
+import MenuHamburguer from "../MenuHamburguer/MenuHamburguer";
 
 export function Navbar({ onChange }) {
   const [scrolled, setScrolled] = useState(false);
@@ -49,7 +49,7 @@ export function Navbar({ onChange }) {
             <NavBarLink to={"/galeria"}>Galeria</NavBarLink>
           </nav>
         </div>
-        <MenuHamburguer />
+        <MenuHamburguer/>
       </div>
     </header>
   );
