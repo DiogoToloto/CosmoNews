@@ -13,7 +13,7 @@ const SectionContainer = styled.section`
     margin-top: 90px;
     max-width: 1240px;
     margin: 90px auto;
-    padding: 40px;
+    padding: 2rem;
 `
 
 const ContainerPesquisa = styled.div`
@@ -22,12 +22,25 @@ const ContainerPesquisa = styled.div`
     gap: 10px;
     align-items: center;
     
+    label{
+        font-size: 1.5rem;
+    }
+
+    input{
+        width: 100%;
+    }
 `
 
 const TagsContainer = styled.div`
 
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     gap: 15px;
+
+    h4{
+        font-size: 1rem;
+    }
 `
 
 const GaleriaContainer = styled.div`
@@ -40,10 +53,14 @@ const GaleriaContainer = styled.div`
 const ImgsContainer = styled.div`
     
     width: 100%;
+    justify-content: space-evenly;
     display: flex;
     flex-wrap: wrap;
     gap: 25px;
-    
+
+    @media (max-width: 700px) {
+        justify-content: center;
+    }
 `
 
 export const Galeria = ({imagens}) => {
@@ -63,12 +80,9 @@ export const Galeria = ({imagens}) => {
         </TagsContainer>
         <GaleriaContainer>
             <ImgsContainer>
-                {imagens.map(imagem => <CardFotos banner={imagem.link} titulo={imagem.titulo}/>)}
+                {imagens.map(imagem => <CardFotos key={imagem.id} banner={imagem.link} titulo={imagem.titulo}/>)}
 
             </ImgsContainer>
-            <div style={{border: "1px solid #ff0000",  width: "30%", height: "500px"}}>
-
-            </div>
         </GaleriaContainer>
        </SectionContainer>
     )

@@ -3,17 +3,20 @@ import { FaRegHeart } from "react-icons/fa";
 import { MdOutlineZoomOutMap } from "react-icons/md";
 
 const ContainerCardFoto = styled.div`
-  width: 400px;
+  width: 350px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.725);
   border-radius: 10px;
-  
+  transition: transform 0.3s ease;
+
+  &:hover{
+    transform: scale(1.05);
+  }
 `;
 
 const ImgCard = styled.div`
-  
   
   img {
     width: 100%;
@@ -38,7 +41,7 @@ export const CardFotos = ({banner, titulo}) => {
   return (
     <ContainerCardFoto>
       <ImgCard>
-        <img src={banner} alt="" />
+        <img src={banner} alt="" loading="lazy"/>
       </ImgCard>
       <MainCard>
         <div>

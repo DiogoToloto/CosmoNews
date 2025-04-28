@@ -1,13 +1,14 @@
 import styled from "styled-components";
 import { Article } from "../../components/Article/Article";
 import { Tags } from "../../components/Tags/Tags";
-import { useState } from "react";
 import { InputBusca } from "../../components/CampoBusca/CampoBusca";
 
 const NoticiasContainer = styled.div`
   max-width: 1240px;
   margin: auto;
   margin-top: 90px;
+  padding: 0px 2rem;
+
   @media (min-width: 700px) {
     hr {
       display: none;
@@ -17,16 +18,17 @@ const NoticiasContainer = styled.div`
 
 const CampoBuscaContainer = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin: auto;
   padding: 40px 0px;
   gap: 5px;
+
+  label{
+    font-size: 1.5rem;
+  }
 `;
 
 const ArtigosContainer = styled.section`
-  max-width: 1240px;
-  padding: 0 2rem;
+  
   margin: 4rem auto;
 
   display: flex;
@@ -47,7 +49,6 @@ const TagsContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 15px;
-  padding: 0px 2rem;
   flex-wrap: wrap;
 `;
 

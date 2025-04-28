@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 export const CampoInput = ({
   id,
@@ -32,13 +33,20 @@ export const CampoInput = ({
       inputValue = e.target.value;
     }
 
-    onChange(inputValue); 
+    onChange(inputValue);
   };
+
+  const Input = styled.input`
+  
+    padding: 5px;
+    width: 100%;
+    
+  `;
 
   return (
     <div className="campo-input">
       {label && <label htmlFor={id}>{label}</label>}
-      <input
+      <Input
         id={id}
         type={type}
         value={value}

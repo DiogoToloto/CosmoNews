@@ -57,6 +57,10 @@ const InputContainer = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 12px;
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
 `;
 
 export const Contato = () => {
