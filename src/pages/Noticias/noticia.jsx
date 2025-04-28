@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Article } from "../../components/Article/Article";
 import { Tags } from "../../components/Tags/Tags";
 import { useState } from "react";
+import { InputBusca } from "../../components/CampoBusca/CampoBusca";
 
 const NoticiasContainer = styled.div`
   max-width: 1240px;
@@ -31,24 +32,6 @@ const ArtigosContainer = styled.section`
   display: flex;
   flex-direction: column;
   gap: 46px;
-`;
-
-const InputBusca = styled.input`
-  background-color: transparent;
-  border: 2px solid #333;
-  border-radius: 10px;
-
-  padding: 5px;
-  color: rgb(214, 214, 214);
-  width: 80%;
-
-  ::placeholder {
-    color: rgb(214, 214, 214);
-  }
-
-  :focus {
-    outline: none;
-  }
 `;
 
 const PaginationContainer = styled.div`

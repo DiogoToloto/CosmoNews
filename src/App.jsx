@@ -7,6 +7,7 @@ import { Navbar } from "./components/NavBar/Navbar";
 import { Footer } from "./components/Footer/Footer";
 import { BeatLoader } from "react-spinners";
 import { createGlobalStyle } from "styled-components";
+import imagens from "./data/dadosGaleria.json"
 
 const EstiloGlobal = createGlobalStyle`
   
@@ -127,6 +128,7 @@ function App() {
         setPagina={setPagina}
         totalPaginas={totalPaginas}
         aoClicarNaTag={aoClicarNaTag}
+        imagens={imagens}
       />
       <Footer />
     </BrowserRouter>

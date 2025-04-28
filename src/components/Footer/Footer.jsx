@@ -64,7 +64,7 @@ export function Footer() {
         </div>
       </div>
       <div>
-        <p>Copright&copy; DiogoToloto</p>
+        <p>Copyright&copy; DiogoToloto</p>
       </div>
     </footer>
   );

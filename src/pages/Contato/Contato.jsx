@@ -82,7 +82,7 @@ export const Contato = () => {
           <FaPhoneAlt size={"24px"} />
           <TitleContact>Ligue para nós</TitleContact>
         </TitleConatiner>
-        <p>Nós estámos disponiveis se Seg - Sex das 9h - 19h</p>
+        <p>Nós estámos disponiveis de Seg - Sex das 9h - 19h</p>
         <p>Numero: (11) 969223602 </p>
         <hr />
         <TitleConatiner>
@@ -107,15 +107,18 @@ export const Contato = () => {
             type="text"
             label=""
             value={nome}
-            onChange={(e) => setNome(e.target.value)}
+            onChange={(value) => setNome(value)}
+
           />
           <CampoInput
-            placeholder="Número"
+            placeholder="(00)00000-0000"
             id="idNumero"
             type="text"
             label=""
             value={numero}
-            onChange={(e) => setNumero(e.target.value)}
+            onChange={(value) => setNumero(value)}
+            tamanhoMxm="15"
+            mask='celular'
           />
           <CampoInput
             placeholder="E-mail"
@@ -123,11 +126,11 @@ export const Contato = () => {
             type="email"
             label=""
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(value) => setEmail(value)}
           />
         </InputContainer>
         <textarea
-          class="form-control"
+          className="form-control"
           id="exampleFormControlTextarea1"
           rows="6"
           placeholder="Digite a sua mensagem."
