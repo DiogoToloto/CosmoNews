@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import { FaRegHeart } from "react-icons/fa";
+import { LiaDownloadSolid } from "react-icons/lia";
 import { MdOutlineZoomOutMap } from "react-icons/md";
 
 const ContainerCardFoto = styled.div`
+
   width: 350px;
   display: flex;
   flex-direction: column;
@@ -26,31 +27,70 @@ const ImgCard = styled.div`
 `;
 
 const MainCard = styled.div`
+  
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  padding: 10px 10px 0px 10px;
+  gap: 10px;
+  padding: 10px 10px 10px 10px;
 `;
+
+const ConteudoCard = styled.div`
+  
+  height: 56px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* número de linhas antes dos "..." */
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+
+  h4 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+`
 
 const ContainerCardIcons = styled.div`
   display: flex;
-  align-items: center;
-  gap: 16px;
+  gap: 10px;
+  justify-content: end;
+
+  .zoom{
+    cursor: pointer;
+  }
 `;
 
 export const CardFotos = ({banner, titulo}) => {
+
+  const handleDownload = async () => {
+    const response = await fetch(banner, { mode: 'cors' });
+    const blob = await response.blob();
+    const url = URL.createObjectURL(blob);
+  
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "imagem.jpg";
+    a.click();
+  
+    URL.revokeObjectURL(url); // limpa da memória
+  };
+
   return (
     <ContainerCardFoto>
       <ImgCard>
         <img src={banner} alt="" loading="lazy"/>
       </ImgCard>
       <MainCard>
-        <div>
+        <ConteudoCard>
           <h4>{titulo}</h4>
-          <p>descricao</p>
-        </div>
+        </ConteudoCard>
         <ContainerCardIcons>
-          <FaRegHeart size={"20px"} />
-          <MdOutlineZoomOutMap size={"20px"} />
+          <a download>
+          <LiaDownloadSolid size="24px" className="download" onClick={handleDownload} style={{ cursor: 'pointer' }} />
+          </a>
+          <MdOutlineZoomOutMap size={"24px"} className="zoom"/>
         </ContainerCardIcons>
       </MainCard>
     </ContainerCardFoto>
