@@ -63,20 +63,21 @@ const ImgsContainer = styled.div`
     }
 `
 
-export const Galeria = ({imagens}) => {
+export const Galeria = ({imagens, handleChangeFotos, buscar, filtrarPorTagFotos}) => {
     return(
        <SectionContainer>
         <Banner background={bannerGaleria} tamanho="100%" raioBorda="25px" titulo="Galeria de imagens"/>
         <ContainerPesquisa>
             <label htmlFor="">Pesquisa: </label>
-            <InputBusca placeholder="Exemplo: Andromeda"/>
+            <InputBusca value={buscar}  placeholder="Exemplo: Andromeda" onChange={handleChangeFotos}/>
         </ContainerPesquisa>
         <TagsContainer>
             <h4>Busque por tags: </h4>
-            <Tags value="Estrelas"/>
-            <Tags value="Galaxias"/>
-            <Tags value="Planetas"/>
-            <Tags value="Nebulosas"/>
+            <Tags value="Estrelas" onClick={filtrarPorTagFotos}/>
+            <Tags value="Galaxias" onClick={filtrarPorTagFotos}/>
+            <Tags value="Planetas" onClick={filtrarPorTagFotos}/>
+            <Tags value="Nebulosas" onClick={filtrarPorTagFotos}/>
+            <Tags value="Luas" onClick={filtrarPorTagFotos}/>
         </TagsContainer>
         <GaleriaContainer>
             <ImgsContainer>

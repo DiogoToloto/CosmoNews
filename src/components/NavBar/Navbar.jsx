@@ -1,56 +1,108 @@
 import React, { useState, useEffect } from "react";
 import logoImg from "../../assets/images/logo1.png";
-import styles from "./NavBar.module.css";
 import NavBarLink from "../NavLink/NavBarLink";
 import { useLocation } from "react-router-dom";
 import MenuHamburguer from "../MenuHamburguer/MenuHamburguer";
+import styled from "styled-components";
 
-export function Navbar({ onChange }) {
-  const [scrolled, setScrolled] = useState(false);
+const Header = styled.header`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  background-color: ${({ scrolled, otherPages }) =>
+    scrolled || otherPages ? "#333" : "transparent"};
+
+  box-shadow: ${({ scrolled, otherPages }) =>
+    scrolled || otherPages ? "0 4px 7px rgba(0, 0, 0, 0.25)" : "none"};
+
+  ${({ otherPages }) =>
+    otherPages &&
+    `
+      transition: none;
+    `}
+`;
+
+const Navegacao = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1240px;
+  height: 90px;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  @media screen and (max-width: 700px){
+    height: 70px;
+  }
+`;
+
+const NavBrand = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  h1 {
+    font-family: "Grenze", serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+  }
+`;
+
+const Nav = styled.nav`
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 1rem;
+  margin: 0;
+
+  @media screen and (max-width: 700px){
+    display: none;
+  }
+`;
+
+export function Navbar() {
+  const [isScrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const isHomePage = location.pathname === "/";
+  const isOtherPages = location.pathname !== "/";
 
   useEffect(() => {
     const handleScroll = () => {
-      if (isHomePage) {
-        if (window.scrollY > 50) {
-          setScrolled(true);
-        } else {
-          setScrolled(false);
-        }
+      if (!isOtherPages) {
+        // Só adiciona scrolled se estiver na home
+        setScrolled(window.scrollY > 50);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isHomePage]);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isOtherPages]);
 
   return (
-    <header
-      className={`${styles.header} ${
-        isHomePage && scrolled ? styles.scrolled : ""
-      } ${!isHomePage ? styles.otherPages : ""}`}
-    >
-      <div className={styles.navegacao}>
-        <div className={styles.navBrand}>
+    <Header scrolled={isScrolled} otherPages={isOtherPages}>
+      <Navegacao>
+        <NavBrand>
           <picture>
             <img src={logoImg} alt="" />
           </picture>
-          <h1>Cosmo<strong>News</strong></h1>
-        </div>
+          <a href="/">
+            <h1>
+              Cosmo<strong>News</strong>
+            </h1>
+          </a>
+        </NavBrand>
         <div>
-          <nav className={styles.navList}>
+          <Nav>
             <NavBarLink to={"/"}>Início</NavBarLink>
             <NavBarLink to={"/noticias"}>Notícias</NavBarLink>
             <NavBarLink to={"/contato"}>Contato</NavBarLink>
             <NavBarLink to={"/galeria"}>Galeria</NavBarLink>
-          </nav>
+          </Nav>
         </div>
-        <MenuHamburguer/>
-      </div>
-    </header>
+        <MenuHamburguer />
+      </Navegacao>
+    </Header>
   );
 }

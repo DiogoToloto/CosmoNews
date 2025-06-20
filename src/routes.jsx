@@ -9,12 +9,15 @@ const AppRoutes = ({
   news,
   BannerImg,
   handleChange,
-  pagina = { pagina },
-  setPagina = { setPagina },
-  totalPaginas = { totalPaginas },
-  lastNews={lastNews},
-  aoClicarNaTag={aoClicarNaTag},
-  imagens
+  handleChangeFotos,
+  buscar,
+  pagina,
+  setPagina,
+  totalPaginas,
+  lastNews,
+  aoClicarNaTag,
+  filtrarPorTagFotos,
+  imagens,
 }) => {
   return (
     <Routes>
@@ -42,8 +45,13 @@ const AppRoutes = ({
           />
         }
       />
-      <Route path="/contato" element={<Contato/>}></Route>
-      <Route path="/galeria" element={<Galeria imagens={imagens}/>}></Route>
+      <Route path="/contato" element={<Contato />}></Route>
+      <Route
+        path="/galeria"
+        element={
+          <Galeria imagens={imagens} handleChangeFotos={handleChangeFotos} buscar={buscar} filtrarPorTagFotos={filtrarPorTagFotos}/>
+        }
+      ></Route>
       <Route path="*" element={<Pagina404 />}></Route>
     </Routes>
   );

@@ -54,6 +54,7 @@ export const CampoInput = ({
         placeholder={placeholder}
         maxLength={tamanhoMxm}
         {...rest}
+        required
       />
     </div>
   );
