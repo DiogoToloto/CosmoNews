@@ -7,16 +7,16 @@ const MenuHamburger = ({menuAberto, setMenuAberto}) => {
   return (
     <>
       {/* Botão de Menu */}
-      <MenuButton menuAberto={menuAberto} onClick={() => setMenuAberto(true)}>
+      <MenuButton $menuAberto={menuAberto} onClick={() => setMenuAberto(true)}>
         <CiMenuBurger size={30} color="#fff" />
       </MenuButton>
 
       {/* Menu Expandido */}
-      <MenuOverlay menuAberto={menuAberto}>
+      <MenuOverlay $menuAberto={menuAberto}>
         <CloseButton onClick={() => setMenuAberto(false)}>
           <IoMdClose size={30} />
         </CloseButton>
-        <MenuContent menuAberto={menuAberto}>
+        <MenuContent $menuAberto={menuAberto}>
           <ul>
             <li>
               <a href="/">INÍCIO</a>
@@ -48,8 +48,8 @@ const MenuButton = styled.button`
   transition: opacity ease-in-out;
 
   /* Esconde o botão quando o menu está aberto */
-  opacity: ${({ menuAberto }) => (menuAberto ? "0" : "1")};
-  pointer-events: ${({ menuAberto }) => (menuAberto ? "none" : "auto")};
+  opacity: ${({ $menuAberto }) => ($menuAberto ? "0" : "1")};
+  pointer-events: ${({ $menuAberto }) => ($menuAberto ? "none" : "auto")};
 
   @media (min-width: 700px) {
     display: none;
@@ -67,7 +67,7 @@ const MenuOverlay = styled.div`
   flex-direction: column;
   z-index: 99;
 
-  width: ${({ menuAberto }) => (menuAberto ? "40%" : "0%")}; /* Animação da largura */
+  width: ${({ $menuAberto }) => ($menuAberto ? "40%" : "0%")}; /* Animação da largura */
   transition: width 0.5s ease-in-out;
   overflow: hidden; /* Evita rolagem quando fechar */
 `;
@@ -84,8 +84,8 @@ const CloseButton = styled.button`
 
 const MenuContent = styled.div`
   /* Quando o menu está fechado, oculta o conteúdo */
-  opacity: ${({ menuAberto }) => (menuAberto ? "1" : "0")};
-  visibility: ${({ menuAberto }) => (menuAberto ? "visible" : "hidden")};
+  opacity: ${({ $menuAberto }) => ($menuAberto ? "1" : "0")};
+  visibility: ${({ $menuAberto }) => ($menuAberto ? "visible" : "hidden")};
   transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 
   ul {

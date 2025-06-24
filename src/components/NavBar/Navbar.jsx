@@ -12,18 +12,19 @@ const Header = styled.header`
   z-index: 1;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
-  background-color: ${({ scrolled, otherPages }) =>
-    scrolled || otherPages ? "#333" : "transparent"};
+  background-color: ${({ $scrolled, $otherPages }) =>
+    $scrolled || $otherPages ? "#333" : "transparent"};
 
-  box-shadow: ${({ scrolled, otherPages }) =>
-    scrolled || otherPages ? "0 4px 7px rgba(0, 0, 0, 0.25)" : "none"};
+  box-shadow: ${({ $scrolled, $otherPages }) =>
+    $scrolled || $otherPages ? "0 4px 7px rgba(0, 0, 0, 0.25)" : "none"};
 
-  ${({ otherPages }) =>
-    otherPages &&
+  ${({ $otherPages }) =>
+    $otherPages &&
     `
       transition: none;
     `}
 `;
+
 
 const TituloLogo = styled.h1`
   color: #fff;
@@ -85,7 +86,7 @@ export function Navbar({menuAberto, setMenuAberto}) {
   }, [isOtherPages]);
 
   return (
-    <Header scrolled={isScrolled} otherPages={isOtherPages}>
+    <Header $scrolled={isScrolled} $otherPages={isOtherPages}>
       <Navegacao>
         <NavBrand>
           <picture>
@@ -105,7 +106,7 @@ export function Navbar({menuAberto, setMenuAberto}) {
             <NavBarLink to={"/galeria"}>Galeria</NavBarLink>
           </Nav>
         </div>
-        <MenuHamburguer menuAberto={menuAberto} setMenuAberto={setMenuAberto}/>
+        <MenuHamburguer $menuAberto={menuAberto} $setMenuAberto={setMenuAberto}/>
       </Navegacao>
     </Header>
   );

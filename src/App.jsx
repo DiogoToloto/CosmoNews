@@ -136,7 +136,7 @@ function App() {
     <BrowserRouter>
       <EstiloGlobal />
       <Navbar menuAberto={menuAberto} setMenuAberto={setMenuAberto} />
-      <Fundo blur={menuAberto}>
+      <Fundo $blur={menuAberto}>
         <AppRoutes
           lastNews={lastNews}
           news={news}
