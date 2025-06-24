@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";

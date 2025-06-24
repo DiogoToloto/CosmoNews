@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Banner } from "../../components/Banner/Banner";
 import bannerGaleria from "../../assets/images/bannerGaleria.jpg";
 import { InputBusca } from "../../components/CampoBusca/CampoBusca";
 import { Tags } from "../../components/Tags/Tags";
