@@ -99,9 +99,9 @@ export function Navbar({menuAberto, setMenuAberto}) {
         </NavBrand>
         <div>
           <Nav>
-            <NavBarLink to={"/"}>Início</NavBarLink>
-            <NavBarLink to={"/noticias"}>Notícias</NavBarLink>
-            <NavBarLink to={"/contato"}>Contato</NavBarLink>
+            <NavBarLink to={"/"}>Início</NavBarLink>|
+            <NavBarLink to={"/noticias"}>Notícias</NavBarLink>|
+            <NavBarLink to={"/contato"}>Contato</NavBarLink>|
             <NavBarLink to={"/galeria"}>Galeria</NavBarLink>
           </Nav>
         </div>

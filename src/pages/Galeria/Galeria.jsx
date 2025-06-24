@@ -19,17 +19,19 @@ const BannerImg = styled.div`
   background: url(${bannerGaleria});
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
+  background-position: center bottom;
   width: 100%;
   height: 300px;
   box-shadow: 0px 0px 10px rgba(0,0,0);
   border-radius: 25px;
+  margin-top: 100px;
 
   @media screen and (max-width: 700px) {
     position: absolute;
     top: 70px;
     left: 0;
     border-radius: 0;
+    margin: 0;
   }
 `;
 
@@ -39,7 +41,7 @@ const ContainerPesquisa = styled.div`
   align-items: center;
 
   @media screen and (max-width: 700px) {
-    margin-top: 280px;
+    margin-top: 360px;
   }
   
 
