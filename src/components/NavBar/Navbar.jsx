@@ -25,6 +25,10 @@ const Header = styled.header`
     `}
 `;
 
+const TituloLogo = styled.h1`
+  color: #fff;
+`
+
 const Navegacao = styled.div`
   display: flex;
   align-items: center;
@@ -63,7 +67,7 @@ const Nav = styled.nav`
   }
 `;
 
-export function Navbar() {
+export function Navbar({menuAberto, setMenuAberto}) {
   const [isScrolled, setScrolled] = useState(false);
   const location = useLocation();
   const isOtherPages = location.pathname !== "/";
@@ -88,9 +92,9 @@ export function Navbar() {
             <img src={logoImg} alt="" />
           </picture>
           <a href="/">
-            <h1>
+            <TituloLogo>
               Cosmo<strong>News</strong>
-            </h1>
+            </TituloLogo>
           </a>
         </NavBrand>
         <div>
@@ -101,7 +105,7 @@ export function Navbar() {
             <NavBarLink to={"/galeria"}>Galeria</NavBarLink>
           </Nav>
         </div>
-        <MenuHamburguer />
+        <MenuHamburguer menuAberto={menuAberto} setMenuAberto={setMenuAberto}/>
       </Navegacao>
     </Header>
   );

@@ -3,27 +3,34 @@ import styled from "styled-components";
 import { CiMenuBurger } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
 
-const MenuHamburger = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const MenuHamburger = ({menuAberto, setMenuAberto}) => {
 
   return (
     <>
       {/* Botão de Menu */}
-      <MenuButton isOpen={isOpen} onClick={() => setIsOpen(true)}>
+      <MenuButton menuAberto={menuAberto} onClick={() => setMenuAberto(true)}>
         <CiMenuBurger size={30} color="#fff" />
       </MenuButton>
 
       {/* Menu Expandido */}
-      <MenuOverlay isOpen={isOpen}>
-        <CloseButton onClick={() => setIsOpen(false)}>
+      <MenuOverlay menuAberto={menuAberto}>
+        <CloseButton onClick={() => setMenuAberto(false)}>
           <IoMdClose size={30} />
         </CloseButton>
-        <MenuContent isOpen={isOpen}>
+        <MenuContent menuAberto={menuAberto}>
           <ul>
-            <li><a href="/">INÍCIO</a></li>
-            <li><a href="/noticias">NOTÍCIAS</a></li>
-            <li><a href="/contato">CONTATO</a></li>
-            <li><a href="/galeria">GALERIA</a></li>
+            <li>
+              <a href="/">INÍCIO</a>
+            </li>
+            <li>
+              <a href="/noticias">NOTÍCIAS</a>
+            </li>
+            <li>
+              <a href="/contato">CONTATO</a>
+            </li>
+            <li>
+              <a href="/galeria">GALERIA</a>
+            </li>
           </ul>
         </MenuContent>
       </MenuOverlay>
@@ -33,7 +40,6 @@ const MenuHamburger = () => {
 
 // Estilos
 const MenuButton = styled.button`
- 
   top: 20px;
   left: 20px;
   background: none;
@@ -43,10 +49,10 @@ const MenuButton = styled.button`
   transition: opacity ease-in-out;
 
   /* Esconde o botão quando o menu está aberto */
-  opacity: ${({ isOpen }) => (isOpen ? "0" : "1")};
-  pointer-events: ${({ isOpen }) => (isOpen ? "none" : "auto")};
+  opacity: ${({ menuAberto }) => (menuAberto ? "0" : "1")};
+  pointer-events: ${({ menuAberto }) => (menuAberto ? "none" : "auto")};
 
-  @media (min-width: 700px){
+  @media (min-width: 700px) {
     display: none;
   }
 `;
@@ -62,7 +68,7 @@ const MenuOverlay = styled.div`
   flex-direction: column;
   z-index: 99;
 
-  width: ${({ isOpen }) => (isOpen ? "50%" : "0%")}; /* Animação da largura */
+  width: ${({ menuAberto }) => (menuAberto ? "40%" : "0%")}; /* Animação da largura */
   transition: width 0.5s ease-in-out;
   overflow: hidden; /* Evita rolagem quando fechar */
 `;
@@ -75,36 +81,33 @@ const CloseButton = styled.button`
   border: none;
   color: white;
   cursor: pointer;
-  `
+`;
 
 const MenuContent = styled.div`
   /* Quando o menu está fechado, oculta o conteúdo */
-  opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
-  visibility: ${({ isOpen }) => (isOpen ? "visible" : "hidden")};
+  opacity: ${({ menuAberto }) => (menuAberto ? "1" : "0")};
+  visibility: ${({ menuAberto }) => (menuAberto ? "visible" : "hidden")};
   transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 
   ul {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     list-style: none;
     padding: 50px 0px 0px 30px;
   }
 
-  li {
-    margin: 20px 0;
-    cursor: pointer;
-    font-size: 1.5rem;
-  }
-
-  li:hover{
-    border: 1px solid #fff;
-    margin-left: -30px;
-    padding-left: 20px;
-  }
-
-  a{
+  a {
     text-decoration: none;
     color: aliceblue;
     font-size: 1rem;
   }
+
+  a:hover {
+    color: #ccc;
+  }
 `;
+
 
 export default MenuHamburger;

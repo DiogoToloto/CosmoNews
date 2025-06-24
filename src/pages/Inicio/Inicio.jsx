@@ -15,7 +15,7 @@ const InicioContainer = styled.div`
 `;
 
 const Titulo = styled.h2`
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin: auto;
 `
 

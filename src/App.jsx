@@ -7,7 +7,8 @@ import { Navbar } from "./components/NavBar/Navbar";
 import { Footer } from "./components/Footer/Footer";
 import { BeatLoader } from "react-spinners";
 import { createGlobalStyle } from "styled-components";
-import fotos from "./data/dadosGaleria.json"
+import fotos from "./data/dadosGaleria.json";
+import { Fundo } from "./components/Fundo/Fundo";
 
 const EstiloGlobal = createGlobalStyle`
   
@@ -32,8 +33,9 @@ function App() {
   const [pagina, setPagina] = useState(1);
   const [totalPaginas, setTotalPaginas] = useState(1);
   const limite = 10;
-  const [fotosDaGaleria, setFotosDaGaleria] = useState(fotos)
-  const [buscar, setBuscar] = useState("")
+  const [fotosDaGaleria, setFotosDaGaleria] = useState(fotos);
+  const [buscar, setBuscar] = useState("");
+  const [menuAberto, setMenuAberto] = useState(false);
 
   useEffect(() => {
     const buscarNoticias = async () => {
@@ -109,44 +111,48 @@ function App() {
   }
 
   const handleChangeFotos = (event) => {
-    setBuscar(event.target.value)
-  }
+    setBuscar(event.target.value);
+  };
 
-  const filtrarFotos = fotosDaGaleria.filter((foto) => 
-    foto.titulo.toLowerCase().includes(buscar.toLowerCase()) || foto.categoria.toLowerCase().includes(buscar.toLowerCase())
-  )
+  const filtrarFotos = fotosDaGaleria.filter(
+    (foto) =>
+      foto.titulo.toLowerCase().includes(buscar.toLowerCase()) ||
+      foto.categoria.toLowerCase().includes(buscar.toLowerCase())
+  );
 
   const filtrarPorTagFotos = (tag) => {
-    setBuscar(tag)
-  }
+    setBuscar(tag);
+  };
 
   const handleChange = (event) => {
     setSearch(event.target.value);
   };
 
   const aoClicarNaTag = (tag) => {
-    setSearch(tag)
-  }
+    setSearch(tag);
+  };
 
   return (
     <BrowserRouter>
       <EstiloGlobal />
-      <Navbar />
-      <AppRoutes
-        lastNews={lastNews}
-        news={news}
-        BannerImg={BannerImg}
-        handleChange={handleChange}
-        handleChangeFotos={handleChangeFotos}
-        buscar={buscar}
-        pagina={pagina}
-        setPagina={setPagina}
-        totalPaginas={totalPaginas}
-        aoClicarNaTag={aoClicarNaTag}
-        filtrarPorTagFotos={filtrarPorTagFotos}
-        imagens={filtrarFotos}
-      />
-      <Footer />
+      <Navbar menuAberto={menuAberto} setMenuAberto={setMenuAberto} />
+      <Fundo blur={menuAberto}>
+        <AppRoutes
+          lastNews={lastNews}
+          news={news}
+          BannerImg={BannerImg}
+          handleChange={handleChange}
+          handleChangeFotos={handleChangeFotos}
+          buscar={buscar}
+          pagina={pagina}
+          setPagina={setPagina}
+          totalPaginas={totalPaginas}
+          aoClicarNaTag={aoClicarNaTag}
+          filtrarPorTagFotos={filtrarPorTagFotos}
+          imagens={filtrarFotos}
+        />
+        <Footer />
+      </Fundo>
     </BrowserRouter>
   );
 }
