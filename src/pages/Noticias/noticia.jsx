@@ -80,9 +80,8 @@ const Noticias = ({ dados, handleChange, pagina, setPagina, totalPaginas, aoClic
 
       <section id="articles">
         {dados.map((article) => (
-          <ArtigosContainer>
+          <ArtigosContainer key={article.id}>
             <Article
-              key={article.id}
               title={article.title}
               provider={article.news_site}
               description={article.summary}

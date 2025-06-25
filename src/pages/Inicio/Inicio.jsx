@@ -37,7 +37,7 @@ export const Inicio = ({ lastNews, background, titulo }) => {
       <ArtigosContainer>
         {lastNews.map((article) => {
           return (
-            <>
+            <div key={article.id}>
               <Article
                 key={article.id}
                 title={article.title}
@@ -47,7 +47,7 @@ export const Inicio = ({ lastNews, background, titulo }) => {
                 font={article.url}
               />
               <hr />
-            </>
+            </div>
           );
         })}
       </ArtigosContainer>

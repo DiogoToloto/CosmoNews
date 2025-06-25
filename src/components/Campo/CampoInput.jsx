@@ -1,6 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
+const Input = styled.input`
+  
+    padding: 5px;
+    width: 100%;
+    
+  `;
+
 export const CampoInput = ({
   id,
   type,
@@ -35,13 +42,6 @@ export const CampoInput = ({
 
     onChange(inputValue);
   };
-
-  const Input = styled.input`
-  
-    padding: 5px;
-    width: 100%;
-    
-  `;
 
   return (
     <div className="campo-input">
