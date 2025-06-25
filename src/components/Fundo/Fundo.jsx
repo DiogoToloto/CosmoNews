@@ -6,6 +6,6 @@ const FundoContainer = styled.div`
   filter: ${({ $blur }) => ($blur ? "blur(5px) brightness(0.8)" : "none")};
 `;
 
-export const Fundo = ({ blur, children }) => {
-  return <FundoContainer $blur={blur}>{children}</FundoContainer>;
+export const Fundo = ({ $blur, children }) => {
+  return <FundoContainer $blur={$blur}>{children}</FundoContainer>;
 };
