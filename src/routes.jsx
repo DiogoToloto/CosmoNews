@@ -4,8 +4,7 @@ import { Pagina404 } from "./pages/Pagina404/Pagina404";
 import { Contato } from "./pages/Contato/Contato";
 import Noticias from "./pages/Noticias/noticia";
 import { Galeria } from "./pages/Galeria/Galeria";
-import { PoliticaPrivacidade } from "./pages/PoliticaDePrivacidade/PoliticaPrivacidade";
-import { Fundo } from "./components/Fundo/Fundo";
+import PoliticaPrivacidade from "./pages/PoliticaDePrivacidade/PoliticaPrivacidade"
 
 const AppRoutes = ({
   news,
