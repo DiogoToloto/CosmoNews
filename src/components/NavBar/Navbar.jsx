@@ -106,7 +106,7 @@ export function Navbar({menuAberto, setMenuAberto}) {
             <NavBarLink to={"/galeria"}>Galeria</NavBarLink>
           </Nav>
         </div>
-        <MenuHamburguer $menuAberto={menuAberto} $setMenuAberto={setMenuAberto}/>
+        <MenuHamburguer menuAberto={menuAberto} setMenuAberto={setMenuAberto}/>
       </Navegacao>
     </Header>
   );

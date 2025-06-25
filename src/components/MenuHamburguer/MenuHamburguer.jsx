@@ -7,7 +7,7 @@ const MenuHamburger = ({menuAberto, setMenuAberto}) => {
   return (
     <>
       {/* Botão de Menu */}
-      <MenuButton $menuAberto={menuAberto} onClick={() => setMenuAberto(true)}>
+      <MenuButton menuAberto={menuAberto} onClick={() => setMenuAberto(true)}>
         <CiMenuBurger size={30} color="#fff" />
       </MenuButton>
 
