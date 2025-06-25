@@ -5,6 +5,8 @@ import { Contato } from "./pages/Contato/Contato";
 import Noticias from "./pages/Noticias/noticia";
 import { Galeria } from "./pages/Galeria/Galeria";
 import PoliticaPrivacidade from "./pages/PoliticaDePrivacidade/PoliticaPrivacidade"
+import Termos from "./pages/Termos/Termos";
+import PoliticaCookies from "./pages/PoliticaCookies/PoliticaCookies";
 
 const AppRoutes = ({
   news,
@@ -61,8 +63,10 @@ const AppRoutes = ({
         <Route
           path="/politica-de-privacidade"
           element={<PoliticaPrivacidade />}
-        ></Route>
-        <Route path="*" element={<Pagina404 />}></Route>
+        />
+        <Route path="/termos"element={<Termos/>}/>
+        <Route path="/politicaCookies" element={<PoliticaCookies />}/>
+          <Route path="*" element={<Pagina404 />}></Route>
       </Routes>
   );
 };

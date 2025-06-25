@@ -57,13 +57,13 @@ export function Footer() {
           <TituloLinks>Mais</TituloLinks>
           <ul className="p-0">
             <li className="">
-              <a href="/">Termos e condiçoes</a>
+              <a href="/termos">Termos e condiçoes</a>
             </li>
             <li>
               <a href="/politica-de-privacidade">Politica de privacidade</a>
             </li>
             <li>
-              <a href="/">Politica de cookies</a>
+              <a href="/politicaCookies">Politica de cookies</a>
             </li>
           </ul>
         </div>

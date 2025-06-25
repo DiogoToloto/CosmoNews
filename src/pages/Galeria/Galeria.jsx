@@ -14,6 +14,9 @@ const SectionContainer = styled.section`
 `;
 
 const BannerImg = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   background: url(${bannerGaleria});
   background-repeat: no-repeat;
@@ -24,6 +27,12 @@ const BannerImg = styled.div`
   box-shadow: 0px 0px 10px rgba(0,0,0);
   border-radius: 25px;
   margin-top: 100px;
+
+  p {
+    font-size: 3rem;
+    color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+  }
 
   @media screen and (max-width: 700px) {
     position: absolute;
@@ -90,7 +99,9 @@ export const Galeria = ({
 }) => {
   return (
     <SectionContainer>
-      <BannerImg></BannerImg>
+      <BannerImg>
+        <p>Galeria de fotos</p>
+      </BannerImg>
       <ContainerPesquisa>
         <label htmlFor="">Pesquisa: </label>
         <InputBusca

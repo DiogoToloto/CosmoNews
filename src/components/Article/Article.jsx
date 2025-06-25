@@ -6,7 +6,7 @@ export function Article({title,provider,description,thumbnail,font,dataPublicaca
             <article id="article">
                 <img src={thumbnail} alt="" />
                 <div className="article-infos">
-                    <a href={font}>
+                    <a href={font} target="blank">
                         <h2>{title}</h2>
                     </a>
                     <h3>{provider}</h3>
